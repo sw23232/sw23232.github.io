@@ -1,12 +1,181 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-</head>
-<body>
-    <h1>GitHub Pages 테스트</h1>
-    <p>이 페이지는 GitHub Pages에서 실행됩니다.</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conchia - 프리미엄 딸기</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        line-height: 1.6;
+        color: #333;
+      }
+      header {
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+      }
+      nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+      section {
+        padding: 100px 20px 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      #hero {
+        position: relative;
+        background: url('https://via.placeholder.com/1200x600?text=Conchia+Farm')
+          no-repeat center center/cover;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+      #hero h1 {
+        font-size: 3em;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #about,
+      #product,
+      #video {
+        background-color: #f9f9f9;
+        margin-top: 40px;
+        padding: 60px 20px;
+        border-radius: 8px;
+      }
+      #about p,
+      #product p {
+        max-width: 800px;
+        margin: 0 auto 20px;
+      }
+      .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+      .gallery-item {
+        flex: 1 1 300px;
+      }
+      .gallery-item img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      #product img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        border-radius: 8px;
+      }
+      .video-placeholder {
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+        background-color: #000;
+        margin: 20px auto;
+        display: block;
+        border-radius: 8px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">회사소개</a>
+        <a href="#product">제품 소개</a>
+        <a href="#video">홍보영상</a>
+      </nav>
+    </header>
+
+    <section id="hero">
+      <h1>Conchia - 프리미엄 딸기</h1>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">회사 소개</h2>
+      <p>
+        Conchia는 청정 자연에서 자란 최고 품질의 딸기를 생산하는 농업
+        회사입니다. 우리의 목표는 신선하고 건강한 딸기를 고객님께 제공하여
+        신뢰와 만족을 전달하는 것입니다.
+      </p>
+      <p>
+        농장에서 직접 재배하는 친환경 딸기를 통해, 생산과정의 투명성과 엄격한
+        품질 관리를 실현하고 있습니다.
+      </p>
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img
+            src="https://via.placeholder.com/400x300?text=농장+전경"
+            alt="농장 전경"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://via.placeholder.com/400x300?text=재배+과정"
+            alt="재배 과정"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://via.placeholder.com/400x300?text=품질+관리"
+            alt="품질 관리"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2 class="section-title">제품 소개</h2>
+      <p>
+        Conchia의 딸기는 자연 그대로의 맛과 영양을 담고 있습니다. 정성스럽게
+        재배한 딸기는 상쾌하고 달콤한 맛으로 고객님의 식탁에 건강과 행복을
+        선사합니다.
+      </p>
+      <img
+        src="https://via.placeholder.com/800x400?text=프리미엄+딸기"
+        alt="프리미엄 딸기"
+      />
+      <p>다양한 품질 인증과 고객 추천사를 통해 신뢰성을 증명하고 있습니다.</p>
+    </section>
+
+    <section id="video">
+      <h2 class="section-title">홍보영상</h2>
+      <p style="text-align: center">
+        아래의 검은 사각형은 유튜브 또는 라이브 스트리밍 영상 자리입니다.
+      </p>
+      <div class="video-placeholder"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Conchia. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
