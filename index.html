@@ -6,25 +6,25 @@
   <title>Conchia - 프리미엄 딸기</title>
   <style>
     :root {
-      --primary-color: #2e8b57;  /* SeaGreen */
-      --secondary-color: #f0f0f0;  /* Light Gray */
+      --primary-color: #2e8b57;  /* SeaGreen (포인트 색상) */
+      --secondary-color: #333;    /* 섹션 배경: 다크 그레이 */
       --accent-color: #f4a460;     /* Sandy Brown */
-      --text-color: #333;
+      --text-color: #fff;         /* 텍스트는 흰색 */
     }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
+      background-color: #000; /* 전체 배경 검정 */
       line-height: 1.6;
       color: var(--text-color);
     }
     header {
-      background-color: #fff;
+      background-color: #222;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 100;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     nav {
       display: flex;
@@ -54,7 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: var(--text-color);
       text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     }
     #hero h1 {
@@ -70,7 +70,7 @@
       padding: 60px 20px;
       border-radius: 8px;
     }
-    #about p, #product p {
+    #about p, #product p, #news p {
       max-width: 800px;
       margin: 0 auto 20px;
     }
@@ -102,7 +102,7 @@
       display: block;
       border-radius: 8px;
     }
-    /* SNS 섹션 */
+    /* SNS 섹션 - 인스타그램만 남김 */
     #sns .sns-container {
       display: flex;
       justify-content: center;
@@ -132,12 +132,12 @@
       justify-content: center;
     }
     .news-card {
-      background-color: #fff;
-      border: 1px solid #ddd;
+      background-color: #222;
+      border: 1px solid #444;
       border-radius: 8px;
       overflow: hidden;
       width: 300px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     .news-card img {
       width: 100%;
@@ -173,7 +173,7 @@
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #ddd;
+      background-color: #222;
     }
   </style>
 </head>
@@ -238,17 +238,9 @@
   <section id="sns">
     <h2 class="section-title">Follow Us</h2>
     <div class="sns-container">
-      <a href="https://www.facebook.com" target="_blank">
-        <img src="https://via.placeholder.com/50?text=FB" alt="Facebook">
-        Facebook
-      </a>
-      <a href="https://www.instagram.com" target="_blank">
-        <img src="https://via.placeholder.com/50?text=IG" alt="Instagram">
+      <a href="https://www.instagram.com/your_instagram_account" target="_blank">
+        <img src="https://via.placeholder.com/50?text=IG" alt="Instagram 로고">
         Instagram
-      </a>
-      <a href="https://www.twitter.com" target="_blank">
-        <img src="https://via.placeholder.com/50?text=TW" alt="Twitter">
-        Twitter
       </a>
     </div>
   </section>
@@ -264,7 +256,7 @@
     <h2 class="section-title">찾아오시는 길</h2>
     <div class="map-container">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.3382371575224!2d-122.08424928469016!3d37.42199977982573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0b2b4c13155%3A0x3ab15a6abbe480c3!2sGoogleplex!5e0!3m2!1sen!2sus!4v1571777255084!5m2!1sen!2sus" 
+        src="https://www.google.com/maps?q=경상북도+영양군+청기면+무진리+466&output=embed" 
         allowfullscreen="" 
         loading="lazy">
       </iframe>
@@ -291,6 +283,7 @@
           data.items.forEach(item => {
             const card = document.createElement('div');
             card.className = 'news-card';
+            // 블로그 게시글 첫 이미지나 대표 이미지 사용
             const imageUrl = item.thumbnail || 'https://via.placeholder.com/300x180?text=No+Image';
             card.innerHTML = `
               <img src="${imageUrl}" alt="뉴스 이미지">
