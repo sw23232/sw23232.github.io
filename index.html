@@ -186,4 +186,130 @@
       <a href="#product">제품 소개</a>
       <a href="#video">홍보영상</a>
       <a href="#sns">SNS</a>
-      <a href="#news
+      <a href="#news">농장 소식</a>
+      <a href="#map">찾아오시는 길</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h1>Conchia - 프리미엄 딸기</h1>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">회사 소개</h2>
+    <p>
+      Conchia는 청정 자연에서 자란 최고 품질의 딸기를 생산하는 농업 회사입니다. 우리의 목표는 신선하고 건강한 딸기를 고객님께 제공하여 신뢰와 만족을 전달하는 것입니다.
+    </p>
+    <p>
+      농장에서 직접 재배하는 친환경 딸기를 통해, 생산 과정의 투명성과 엄격한 품질 관리를 실현하고 있습니다.
+    </p>
+    <div class="image-gallery">
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/400x300?text=농장+전경" alt="농장 전경">
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/400x300?text=재배+과정" alt="재배 과정">
+      </div>
+      <div class="gallery-item">
+        <img src="https://via.placeholder.com/400x300?text=품질+관리" alt="품질 관리">
+      </div>
+    </div>
+  </section>
+
+  <section id="product">
+    <h2 class="section-title">제품 소개</h2>
+    <p>
+      Conchia의 딸기는 자연 그대로의 맛과 영양을 담고 있습니다. 정성스럽게 재배한 딸기는 상쾌하고 달콤한 맛으로 고객님의 식탁에 건강과 행복을 선사합니다.
+    </p>
+    <img src="https://via.placeholder.com/800x400?text=프리미엄+딸기" alt="프리미엄 딸기">
+    <p>
+      다양한 품질 인증과 고객 추천사를 통해 신뢰성을 증명하고 있습니다.
+    </p>
+  </section>
+
+  <section id="video">
+    <h2 class="section-title">홍보영상</h2>
+    <p style="text-align:center;">
+      아래의 검은 사각형은 유튜브 또는 라이브 스트리밍 영상 자리입니다.
+    </p>
+    <div class="video-placeholder"></div>
+  </section>
+
+  <section id="sns">
+    <h2 class="section-title">Follow Us</h2>
+    <div class="sns-container">
+      <a href="https://www.facebook.com" target="_blank">
+        <img src="https://via.placeholder.com/50?text=FB" alt="Facebook">
+        Facebook
+      </a>
+      <a href="https://www.instagram.com" target="_blank">
+        <img src="https://via.placeholder.com/50?text=IG" alt="Instagram">
+        Instagram
+      </a>
+      <a href="https://www.twitter.com" target="_blank">
+        <img src="https://via.placeholder.com/50?text=TW" alt="Twitter">
+        Twitter
+      </a>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2 class="section-title">농장 소식</h2>
+    <div class="news-items">
+      <p>최신 블로그 게시글을 불러오는 중입니다...</p>
+    </div>
+  </section>
+
+  <section id="map">
+    <h2 class="section-title">찾아오시는 길</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.3382371575224!2d-122.08424928469016!3d37.42199977982573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0b2b4c13155%3A0x3ab15a6abbe480c3!2sGoogleplex!5e0!3m2!1sen!2sus!4v1571777255084!5m2!1sen!2sus" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Conchia. All rights reserved.</p>
+  </footer>
+
+  <!-- 최신 블로그 게시글 불러오기 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      // 네이버 블로그 RSS 피드 URL (rss2json API 사용)
+      const feedUrl = "https://rss.blog.naver.com/thsgidals.xml";
+      const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+      
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const container = document.querySelector('.news-items');
+          container.innerHTML = ""; // 로딩 메시지 제거
+          // 최신 게시글 순서대로 표시 (최신순)
+          data.items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            const imageUrl = item.thumbnail || 'https://via.placeholder.com/300x180?text=No+Image';
+            card.innerHTML = `
+              <img src="${imageUrl}" alt="뉴스 이미지">
+              <div class="card-content">
+                <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                <p>${new Date(item.pubDate).toLocaleDateString()}</p>
+                <p>${item.description.replace(/<[^>]*>?/gm, '').substring(0, 100)}...</p>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(error => {
+          console.error('RSS 피드 불러오기 오류:', error);
+          const container = document.querySelector('.news-items');
+          container.innerHTML = "<p>블로그 게시글을 불러오지 못했습니다.</p>";
+        });
+    });
+  </script>
+
+</body>
+</html>
